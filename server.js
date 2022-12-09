@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -14,7 +15,9 @@ app.use(express.static('src'));
 
 let contador = 0;
 
-app.listen(3001, () => console.log('Server online'));
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => console.log('Server online'));
 
 const fetchBus = async () => {
   const URL = 'http://jeap.rio.rj.gov.br/dadosAbertosAPI/v2/transporte/veiculos/onibus2/';
