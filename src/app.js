@@ -3,7 +3,7 @@ let ZOOM = 11;
 // Criar e centralizar mapa
 const map = L.map("mapa").setView([-22.877222, -43.336329], ZOOM);
 // Adiciona a camada de mapa, zoom máximo e atribui os direitos autorais
-L.tileLayer("httpss://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
