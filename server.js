@@ -128,5 +128,5 @@ app.post('/user-location', async (req, res) => {
 //   res.end();
 // });
 
-app.get('/rotas', (_req, res) => res.send(rotas));
-app.get('/rotas/:linha', (req, res) => res.send(rotas[req.params.linha]));
+// app.get('/rotas', (_req, res) => res.send(rotas));
+// app.get('/rotas/:linha', (req, res) => res.send(rotas[req.params.linha]));
