@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fetch = require('node-fetch');
 const fs = require('fs');
-const {rotas} = require("./rotas.txt");
+// const {rotas} = require("./rotas.txt");
 
 const app = express();
 app.use(express.static(__dirname + '/src'));
