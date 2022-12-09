@@ -17,7 +17,7 @@ let contador = 0;
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => console.log('Server online'));
+app.listen(PORT, () => console.log('Server online na porta ', PORT));
 
 const fetchBus = async () => {
   const URL = 'http://jeap.rio.rj.gov.br/dadosAbertosAPI/v2/transporte/veiculos/onibus2/';
