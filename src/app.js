@@ -62,7 +62,7 @@ const getLastAtt = (horaOnibus) => {
 
 const saveFile = async (data) => {
   try {
-    await fetch('https://average-sky-production.up.railway.app/save-data', {
+    await fetch('https://cademeuonibus.up.railway.app/save-data', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -98,7 +98,7 @@ while (true) {
       if (cont === 4 && Object.keys(lay).includes('_popup') === false) {
         loadTrue('User location')
         try {
-          let posMapa = await fetch('https://average-sky-production.up.railway.app/user-location', {
+          let posMapa = await fetch('https://cademeuonibus.up.railway.app/user-location', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify([currentPos._latlng.lat, currentPos._latlng.lng])
@@ -111,8 +111,8 @@ while (true) {
     });
   }
   loadTrue('Atualizando posições')
-  const responseBus = await fetch('https://average-sky-production.up.railway.app/api/bus');
-  const responseBrt = await fetch('https://average-sky-production.up.railway.app/api/brt');
+  const responseBus = await fetch('https://cademeuonibus.up.railway.app/api/bus');
+  const responseBrt = await fetch('https://cademeuonibus.up.railway.app/api/brt');
   loadFalse();
   let reqBus = await responseBus.json();
   let reqBrt = await responseBrt.json();
@@ -205,7 +205,7 @@ while (true) {
     //   }
 
     //   if (rotaResponse === undefined) {
-    //     rotaResponse = await fetch(`https://average-sky-production.up.railway.app/rotas/${rotaLinha}`);
+    //     rotaResponse = await fetch(`https://cademeuonibus.up.railway.app/rotas/${rotaLinha}`);
     //     console.log(rotaResponse);
     //     let aux;
     //     try {
