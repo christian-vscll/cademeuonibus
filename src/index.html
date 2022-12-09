@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadê o Ônibus???</title>
+
+    <!-- CSS mapa -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+
+    <!-- JS mapa -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
+  </head>
+
+  <body>
+    <h1>Filtros</h1>
+    <div class="filters-container">
+      <div class="filters-div">
+        <label for="input-linha">Linha (Ônibus/BRT)</label>
+        <input type="text" id="input-linha">
+      </div>
+      <div class="filters-div">
+        <label for="input-ordem">Ordem (Ônibus)</label>
+        <input type="text" id="input-ordem">
+      </div>
+      <div class="filters-div">
+        <label for="input-ident">Identificador (BRT)</label>
+        <input type="text" id="input-ident">
+      </div>
+    </div>
+    <div class="spinner">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <span id="loading"></span>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div id="mapa"></div>
+  </body>
+
+  <style>
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items:  center;
+      background-color: #0b131f;
+      color: rgb(215, 215, 215);
+    }
+    #mapa {
+      width: 90vw;
+      height: 80vh;
+      /* width: 500px;
+      height: 500px; */
+      margin: 0;
+    }
+    body > h1 {
+      margin: 0px;
+    }
+    .filters-container {
+      display: flex;
+      flex-direction: row;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .filters-div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Loading */
+    #loading {
+      color: rgb(215, 215, 215);
+      font-size: 14px;
+    }
+    .spinner {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 5px;
+      align-items: end;
+    }
+    .spinner > .dot {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background-color: darkslategrey;
+      animation: blur 1s infinite alternate;
+    }
+    .spinner > .dot:nth-child(2) { animation-delay: 200ms; }
+    .spinner > .dot:nth-child(3) { animation-delay: 400ms; }
+    .spinner > .dot:nth-child(5) { animation-delay: 600ms; }
+    .spinner > .dot:nth-child(6) { animation-delay: 800ms; }
+    .spinner > .dot:nth-child(7) { animation-delay: 1000ms; }
+    @keyframes blur {
+      to {
+        filter: blur(4px);
+        opacity: 0;
+      }
+    }
+    /* Loading */
+  </style>
+
+  <script type="module" src="app.js"></script>
+
+</html>
