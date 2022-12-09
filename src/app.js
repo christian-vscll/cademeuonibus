@@ -3,10 +3,10 @@ let ZOOM = 11;
 // Criar e centralizar mapa
 const map = L.map("mapa").setView([-22.877222, -43.336329], ZOOM);
 // Adiciona a camada de mapa, zoom máximo e atribui os direitos autorais
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+L.tileLayer("httpss://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
-    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
 let currentPos;
@@ -62,7 +62,7 @@ const getLastAtt = (horaOnibus) => {
 
 const saveFile = async (data) => {
   try {
-    await fetch('http://localhost:3001/save-data', {
+    await fetch('https://cademeuonibus.com/save-data', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -98,7 +98,7 @@ while (true) {
       if (cont === 4 && Object.keys(lay).includes('_popup') === false) {
         loadTrue('User location')
         try {
-          let posMapa = await fetch('http://localhost:3001/user-location', {
+          let posMapa = await fetch('https://cademeuonibus.com/user-location', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify([currentPos._latlng.lat, currentPos._latlng.lng])
@@ -111,8 +111,8 @@ while (true) {
     });
   }
   loadTrue('Atualizando posições')
-  const responseBus = await fetch('http://localhost:3001/api/bus');
-  const responseBrt = await fetch('http://localhost:3001/api/brt');
+  const responseBus = await fetch('https://cademeuonibus.com/api/bus');
+  const responseBrt = await fetch('https://cademeuonibus.com/api/brt');
   loadFalse();
   let reqBus = await responseBus.json();
   let reqBrt = await responseBrt.json();
@@ -205,7 +205,7 @@ while (true) {
     //   }
 
     //   if (rotaResponse === undefined) {
-    //     rotaResponse = await fetch(`http://localhost:3001/rotas/${rotaLinha}`);
+    //     rotaResponse = await fetch(`https://cademeuonibus.com/rotas/${rotaLinha}`);
     //     console.log(rotaResponse);
     //     let aux;
     //     try {
