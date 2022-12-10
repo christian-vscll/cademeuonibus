@@ -23,6 +23,16 @@
   </head>
 
   <body>
+    <div id="mapa"></div>
+    <div class="spinner">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <span id="loading"></span>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
     <h1>Filtros</h1>
     <div class="filters-container">
       <div class="filters-div">
@@ -38,16 +48,6 @@
         <input type="text" id="input-ident">
       </div>
     </div>
-    <div class="spinner">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <span id="loading"></span>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-    </div>
-    <div id="mapa"></div>
   </body>
 
   <style>
@@ -81,6 +81,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    @media screen and (max-width: 1023px) {
+      #mapa { height: 60vh; }
+      .filters-container { flex-direction: column; }
+      html, body { height: 90vh; }
     }
 
     /* Loading */
